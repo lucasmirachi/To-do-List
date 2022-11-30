@@ -11,9 +11,10 @@ int main(int arg_count, char *args[]) {
     if (arg_count > 1) {
         ToDoList.name = string(args[1]);
         //args[1] takes the second command entered on the terminal
+        ToDoList.mainList = data.read();
+        ToDoList.find_userList();
         ToDoList.print_menu();
-        data.write(ToDoList.list);
-        data.read();
+        data.write(ToDoList.mainList);
     }
     else {
         cout << "Username not supplied... exiting the program\n";

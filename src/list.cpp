@@ -7,7 +7,8 @@ void List::print_menu() {
     cout << " 1 - Print list.\n";
     cout << " 2 - Add to list.\n";
     cout << " 3 - Delete from list.\n";
-    cout << " 4 - Quit\n";
+    cout << " 4 - Save list.\n";
+    cout << " 5 - Quit\n";
     cout << " Enter your choice and press return: ";
 
     cin >> choice;
@@ -23,8 +24,11 @@ void List::print_menu() {
             delete_item();
             break;
         case 4:
-            return;
+            save_list();
             break;
+        case 5:
+            return;
+            break;        
         default:
             cout << " Sorry, choice not implemented yet\n";
             break;
@@ -87,4 +91,35 @@ void List::print_list() {
         cout << "Invalid choice... Quitting\n";
         exit(0);
     }
+}
+
+bool List::find_userList() {
+    bool userFound = false;
+    cout << "\n\n\n\n\n\n\n\n\n\n";
+    cout << "*** Welcome " << name << " ***\n";
+
+    for (int user_index = 0; user_index < (int)mainList.size(); user_index++) {
+        cout << mainList[user_index][0] << "\n";
+        if (mainList[user_index][0] == name) {
+            cout << "User has been found: " << mainList[user_index][0] << "\n";
+            list = mainList[user_index];
+            currentUserIndex = user_index;
+            userFound = true;
+            break;
+        }
+    }
+
+    if (userFound == false) {
+        list.push_back(name);
+        mainList.push_back(list);
+        currentUserIndex = (int)mainList.size()-1;
+    }
+
+    return userFound;
+}
+
+void List::save_list() {
+    cout << "Saving the list...\n";
+    mainList[currentUserIndex] = list;
+    print_menu();
 }

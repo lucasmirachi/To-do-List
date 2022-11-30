@@ -17,9 +17,9 @@ class Database {
 
     // Remembering that a vector is a class variable that allows us to dinamicaly store a collection of variables of the same type
     // vector<datatype> name;
-    vector<string> list;
+    vector<vector<string>> mainList;
     string name;
 
-    void write(vector<string> list);
-    void read();
+    void write(vector<vector<string>> mainList);
+    vector<vector<string>> read();
 };
