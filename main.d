@@ -1,1 +1,1 @@
-obj/main.o: /home/lucas/Documents/ToDoList/main.cpp
+obj/main.o: src/main.cpp src/include/list.h

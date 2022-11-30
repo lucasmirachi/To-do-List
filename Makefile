@@ -10,7 +10,7 @@ LDFLAGS =
 # Makefile settings - Can be customized.
 APPNAME = ToDoList
 EXT = .cpp
-SRCDIR = /home/lucas/Documents/ToDoList
+SRCDIR = src
 OBJDIR = obj
 
 ############## Do not change anything from here downwards! #############

@@ -1,31 +1,6 @@
-#include <iostream>
-#include <vector>
-using namespace std;
+#include "include/list.h"
 
-void print_menu(string name);
-void print_list();
-void add_item();
-void delete_item();
-
-// Remembering that a vector is a class variable that allows us to dinamicaly store a collection of variables of the same type
-// vector<datatype> name;
-vector<string> list;
-string name;
-
-int main(int arg_count, char *args[]) {
-    if (arg_count > 1) {
-        name = string(args[1]);
-        //args[1] takes the second command entered on the terminal
-        print_menu(name);
-    }
-    else {
-        cout << "Username not supplied... exiting the program\n";
-    }
-
-    return 0;
-}
-
-void print_menu(string name) {
+void List::print_menu() {
     int choice;
 
     cout << "****************************\n";
@@ -37,18 +12,26 @@ void print_menu(string name) {
 
     cin >> choice;
 
-    if(choice == 4){
-        exit(0);
-    }
-    else if(choice == 2){
-        add_item();
-    }
-    else {
-        cout << " Sorry, choice not implemented yet\n";
+    switch (choice) {
+        case 1:
+            print_list();
+            break;
+        case 2:
+            add_item();
+            break;
+        case 3:
+            delete_item();
+            break;
+        case 4:
+            exit(0);
+            break;
+        default:
+            cout << " Sorry, choice not implemented yet\n";
+            break;
     }
 } 
 
-void add_item() {
+void List::add_item() {
     cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
     cout << "*** Add Item ***\n";
     cout << "Type in an item and press enter: ";
@@ -64,15 +47,15 @@ void add_item() {
     //cin.clear() will clear any provided input that we've already taken from the console
     cin.clear();
 
-    print_menu(name);
+    print_menu();
 }
 
-void delete_item() {
+void List::delete_item() {
     cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
     cout << "*** Delete Item ***\n";
     cout << "Select an item index number to delete\n ";
     if (list.size()) {
-        for (int i=0; i < list.size(); i++){
+        for (int i=0; i < (int)list.size(); i++){
             cout << i << ": " << list[i] << "\n";
         }
     }
@@ -80,5 +63,25 @@ void delete_item() {
         cout << "No items to delete.\n";
     }
 
-    print_menu(name);
+    print_menu();
+}
+
+void List::print_list() {
+    cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
+    cout << "** Printing List **\n";
+    for (int list_index=0; list_index < (int)list.size(); list_index++){
+        cout << " * " << list[list_index] << "\n";
+    }
+
+    cout << "M - Menu \n";
+    char choice;
+    cin >> choice;
+
+    if (choice == 'M' || choice == 'm') {
+        print_menu();
+    }
+    else {
+        cout << "Invalid choice... Quitting\n";
+        exit(0);
+    }
 }
