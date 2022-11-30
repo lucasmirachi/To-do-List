@@ -23,7 +23,7 @@ void List::print_menu() {
             delete_item();
             break;
         case 4:
-            exit(0);
+            return;
             break;
         default:
             cout << " Sorry, choice not implemented yet\n";
