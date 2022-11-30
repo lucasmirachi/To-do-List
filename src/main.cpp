@@ -1,4 +1,5 @@
 #include "include/list.h"
+#include "include/database.h"
 
 int main(int arg_count, char *args[]) {
     if (arg_count > 1) {
@@ -11,6 +12,9 @@ int main(int arg_count, char *args[]) {
     else {
         cout << "Username not supplied... exiting the program\n";
     }
+
+    Database data;
+    data.write();
 
     return 0;
 }
