@@ -4,14 +4,7 @@
 Most of the code was developed taking [this video](https://www.youtube.com/watch?v=FcYs8wtzjVE&t=7557s) from [SavvyNik
 ](https://www.youtube.com/@SavvyNik) as reference.
 
-## Diagram
-Bellow is the diagram I created to represent the algorithm for the To-Do List. 
-
-*The diagram was drawn using draw.io and respecting the Standard ISO 5807/1985.*
-
-
-
-This simple To-do List allows us to add, remove and keep track of a list of 
+This simple To-do List allows us to add, remove and keep track of a list of items. Also, it counts with a multi-account feature where depending of which account name is provided at the start of the program, it will show only it's specific saved items.
 
 ## Instructions to MakeFile
 
